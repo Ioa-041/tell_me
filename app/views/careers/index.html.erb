@@ -1,1 +1,5 @@
-<%= '経歴を登録する' %>
+<% if user_signed_in? %>
+  こんにちは、
+  <%= link_to "#{current_user.nickname}さん"%><br />
+  <%= link_to '経歴を登録する' %>
+<% end %>
