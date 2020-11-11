@@ -1,0 +1,65 @@
+<h3>会社情報を登録</h3>
+
+<p>会社情報はHPや求人資料などに書いてある場合が多いよ</p><br />
+
+<%= form_with(model: @company, local: true) do |f| %>
+<div>
+  いつから？
+  <span>必須</span>
+</div>
+<div>
+<%= raw sprintf(
+  f.date_select(
+    :joining,
+    id:"joining-date",
+    use_month_numbers: true,
+    discard_day:true,
+    prompt:'--',
+    start_year: Time.now.year,
+    end_year: 1940,
+    date_separator: '%s'),
+    "年", "月") %>
+</div>
+<div>
+  いつまで？
+  <span>必須</span>
+</div>
+<div>
+<%= raw sprintf(
+  f.date_select(
+    :leaving,
+    id:"leaving-date",
+    use_month_numbers: true,
+    discard_day:true,
+    prompt:'--',
+    start_year: Time.now.year,
+    end_year: 1940,
+    date_separator: '%s'),
+    "年", "月") %>
+</div>
+<div>
+  会社名は？
+  <span>必須</span>
+</div>
+<%= f.text_field :name, id:"company-name", placeholder:"会社名（必須)" %>
+<div>
+<div>
+  事業内容は？
+</div>
+<%= f.text_area :detail, id:"company-detail", placeholder:"事業内容（任意)" %>
+<div>
+  従業員数は？
+  ※正確な数がわからない場合は「約」をつける
+</div>
+<%= f.text_field :worker_number, id:"company-worker-number", placeholder:"従業員数（任意)" %>
+<div>
+  雇用形態は？
+</div>
+<%= f.text_field :employment_type, id:"company-employment-type", placeholder:"雇用形態（任意)" %>
+
+
+<h3>担当業務を言語化してみる</h3>
+<div class='register-btn'>
+  <%= f.submit "登録" %>
+</div>
+<% end %>
