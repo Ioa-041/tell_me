@@ -1,41 +1,27 @@
-<h3>会社情報を登録</h3>
+<h3>会社情報をまとめる</h3>
 
 <p>会社情報はHPや求人資料などに書いてある場合が多いよ</p><br />
 
-<%= form_with(model: @company, local: true) do |f| %>
+<%= form_with(model: @company_work, url: companies_path, local: true) do |f| %>
 <div>
   いつから？
   <span>必須</span>
 </div>
 <div>
-<%= raw sprintf(
-  f.date_select(
-    :joining,
-    id:"joining-date",
-    use_month_numbers: true,
-    discard_day:true,
-    prompt:'--',
-    start_year: Time.now.year,
-    end_year: 1940,
-    date_separator: '%s'),
-    "年", "月") %>
+<%= f.text_field :joining_year, id:"company-joining-year" %>
+年
+<%= f.text_field :joining_month, id:"company-joining-month" %>
+月
 </div>
 <div>
   いつまで？
   <span>必須</span>
 </div>
 <div>
-<%= raw sprintf(
-  f.date_select(
-    :leaving,
-    id:"leaving-date",
-    use_month_numbers: true,
-    discard_day:true,
-    prompt:'--',
-    start_year: Time.now.year,
-    end_year: 1940,
-    date_separator: '%s'),
-    "年", "月") %>
+<%= f.text_field :leaving_year, id:"company-leaving-year" %>
+年
+<%= f.text_field :leaving_month, id:"company-leaving-month" %>
+月
 </div>
 <div>
   会社名は？
@@ -57,8 +43,22 @@
 </div>
 <%= f.text_field :employment_type, id:"company-employment-type", placeholder:"雇用形態（任意)" %>
 
+<h3>担当業務を思い出す</h3>
 
-<h3>担当業務を言語化してみる</h3>
+<p>場面ごとに分けておこなっていた業務を言語化してみる</p><br />
+
+<div>
+  毎日おこなっていた業務は？
+</div>
+<%= f.text_area :everyday, id:"everyday_work" %>
+<div>
+  毎月おこなっていた業務は？
+</div>
+<%= f.text_area :monthly, id:"monthly_work" %>
+<div>
+  たまにおこなっていた業務は？
+</div>
+<%= f.text_area :sometimes, id:"sometimes_work" %>
 <div class='register-btn'>
   <%= f.submit "登録" %>
 </div>
