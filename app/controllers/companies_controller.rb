@@ -10,7 +10,8 @@ class CompaniesController < ApplicationController
     @company_work = CompanyWork.new(company_params)
     if @company_work.valid?
       @company_work.save
-      
+    else
+      render action: :new
     end
   end
 
