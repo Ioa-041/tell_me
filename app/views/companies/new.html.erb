@@ -4,7 +4,7 @@
 
 <%= form_with(model: @company_work, url: companies_path, local: true) do |f| %>
 <div>
-  いつから？
+  いつから働いていた？
   <span>必須</span>
 </div>
 <div>
@@ -14,7 +14,7 @@
 月
 </div>
 <div>
-  いつまで？
+  いつまで働いていた？
   <span>必須</span>
 </div>
 <div>
@@ -27,32 +27,32 @@
   会社名は？
   <span>必須</span>
 </div>
-<%= f.text_field :name, id:"company-name", placeholder:"会社名（必須)" %>
+<%= f.text_field :name, id:"company-name" %>
 <div>
 <div>
   事業内容は？
 </div>
-<%= f.text_area :detail, id:"company-detail", placeholder:"事業内容（任意)" %>
+<%= f.text_area :detail, id:"company-detail" %>
 <div>
   従業員数は？
   ※正確な数がわからない場合は「約」をつける
 </div>
-<%= f.text_field :worker_number, id:"company-worker-number", placeholder:"従業員数（任意)" %>
+<%= f.text_field :worker_number, id:"company-worker-number" %>
 <div>
   雇用形態は？
 </div>
-<%= f.text_field :employment_type, id:"company-employment-type", placeholder:"雇用形態（任意)" %>
+<%= f.text_field :employment_type, id:"company-employment-type" %>
 
 <h3>担当業務を思い出す</h3>
 
 <p>場面ごとに分けておこなっていた業務を言語化してみる</p><br />
 
 <div>
-  毎日おこなっていた業務は？
+  毎日必ずおこなっていた業務は？
 </div>
 <%= f.text_area :everyday, id:"everyday_work" %>
 <div>
-  毎月おこなっていた業務は？
+  毎月必ずおこなっていた業務は？
 </div>
 <%= f.text_area :monthly, id:"monthly_work" %>
 <div>
