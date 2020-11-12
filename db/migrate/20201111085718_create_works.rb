@@ -4,6 +4,7 @@ class CreateWorks < ActiveRecord::Migration[6.0]
       t.text :everyday
       t.text :monthly
       t.text :sometimes
+      t.references :company, foreign_key: true
       t.timestamps
     end
   end
