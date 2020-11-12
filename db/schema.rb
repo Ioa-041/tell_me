@@ -13,8 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_11_11_085718) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "joining", null: false
-    t.date "leaving", null: false
+    t.integer "joining_year", null: false
+    t.integer "joining_month", null: false
+    t.integer "leaving_year", null: false
+    t.integer "leaving_month", null: false
     t.string "name", null: false
     t.text "detail"
     t.string "worker_number"
@@ -39,10 +41,15 @@ ActiveRecord::Schema.define(version: 2020_11_11_085718) do
   end
 
   create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "every_day"
+    t.text "everyday"
+    t.text "monthly"
+    t.text "sometimes"
+    t.bigint "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_works_on_company_id"
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "works", "companies"
 end
