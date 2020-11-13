@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :move_to_index, except: :index
+
   def index
   end
 
@@ -18,5 +20,11 @@ class CompaniesController < ApplicationController
   private
   def company_params
     params.require(:company_work).permit(:joining_year, :joining_month, :leaving_year, :leaving_month, :name, :detail, :worker_number, :employment_type, :everyday, :monthly, :sometimes).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 end
