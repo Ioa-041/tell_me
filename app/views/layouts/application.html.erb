@@ -16,7 +16,7 @@
         <h1 class="grid-6"><a href="/">TellMe</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-            <%= link_to "#{current_user.nickname}", "#", class: "post" %>
+            <%= link_to "#{current_user.nickname}さん", "#" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post" %>
           </div>
         <% else %>

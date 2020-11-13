@@ -721,6 +721,14 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
   color: #9bdbf2;
 }
 
+.top-image {
+  position: relative;
+}
+
+.start {
+  position: absolute;
+}
+
 .title {
   font-weight: bold;
 }
