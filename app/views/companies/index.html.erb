@@ -1,0 +1,8 @@
+<%= image_tag '1302011_m.jpg', class: "top-image" %>
+<div class="btn">
+  <% if user_signed_in? %>
+    <a href="/companies/new", class="btn-text">経歴を言語化してみる</a>
+  <% elsif %>
+    <a href="/users/sign_in", class="btn-text">経歴を言語化してみる</a>
+  <% end %>
+</div>

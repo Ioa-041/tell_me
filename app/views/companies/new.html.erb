@@ -1,0 +1,73 @@
+
+<div class="contents row">
+  <div class="container">
+    <h3>まずは会社情報をまとめる</h3>
+
+    <p>会社情報はHPや求人資料などに書いてある場合が多いよ</p><br />
+
+    <%= form_with(model: @company_work, url: companies_path, local: true) do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      いつから働いていた？
+      <%# <div style="display:inline-flex"> %>
+      <%= f.text_field :joining_year, id:"joining-year" %>
+      年
+      <%= f.text_field :joining_month, id:"joining-month" %>
+      月
+      <button type="button" id="first-button">次へ</button><br /><br />
+      <div class="hidden", id="second-question">
+      いつまで働いていた？
+      <%= f.text_field :leaving_year, id:"leaving-year" %>
+      年
+      <%= f.text_field :leaving_month, id:"company-leaving-month" %>
+      月
+      <button type="button" id="second-button">次へ</button><br /><br />
+      </div>
+      <div class="hidden", id="third-question">
+        会社名は？
+        <%= f.text_field :name, id:"company-name" %>
+        <button type="button" id="third-button">次へ</button><br /><br />
+      </div>
+      <div class="hidden", id="fourth-question">
+        事業内容は？
+        <%= f.text_area :detail, id:"company-detail" %>
+        <button type="button" id="fourth-button">次へ</button><br /><br />
+      </div>
+      <div class="hidden", id="fifth-question">
+        従業員数は？
+        ※正確な数がわからない場合は「約」をつける
+        <%= f.text_field :worker_number, id:"company-worker-number" %>
+        <button type="button" id="fifth-button">次へ</button><br /><br />
+      </div>
+      <div class="hidden", id="sixth-question">
+        雇用形態は？
+        <%= f.text_field :employment_type, id:"company-employment-type" %>
+        <button type="button" id="sixth-button">次へ</button><br /><br />
+      </div>
+      <div class="hidden", id="seventh-question">
+      <h3>担当業務を思い出す</h3>
+
+      <p>場面ごとに分けて小さな業務でも言語化してみる<br />
+      ※特になければ「特になし」と入力</p><br />
+      
+
+        毎日必ずおこなっていた業務は？
+        <%= f.text_area :everyday, id:"everyday_work" %>
+        <button type="button" id="seventh-button">次へ</button><br /><br />
+      </div>
+      <div class="hidden", id="eighth-question">
+        毎月必ずおこなっていた業務は？
+        <%= f.text_area :monthly, id:"monthly_work" %>
+        <button type="button" id="eighth-button">次へ</button><br /><br />
+      </div>
+      <div class="hidden", id="ninth-question">
+        たまにおこなっていた業務は？
+        <%= f.text_area :sometimes, id:"sometimes_work" %>
+        <div class='save-btn'>
+        <%= f.submit "保存" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
