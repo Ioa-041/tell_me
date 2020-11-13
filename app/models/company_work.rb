@@ -8,6 +8,13 @@ class CompanyWork
     validates :leaving_year
     validates :leaving_month
     validates :name
+    validates :detail
+    validates :worker_number
+    validates :employment_type
+    validates :user_id
+    validates :everyday
+    validates :monthly
+    validates :sometimes
   end
 
   def save

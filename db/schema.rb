@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2020_11_11_085718) do
     t.integer "leaving_year", null: false
     t.integer "leaving_month", null: false
     t.string "name", null: false
-    t.text "detail"
-    t.string "worker_number"
-    t.string "employment_type"
+    t.text "detail", null: false
+    t.string "worker_number", null: false
+    t.string "employment_type", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2020_11_11_085718) do
   end
 
   create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "everyday"
-    t.text "monthly"
-    t.text "sometimes"
+    t.text "everyday", null: false
+    t.text "monthly", null: false
+    t.text "sometimes", null: false
     t.bigint "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
